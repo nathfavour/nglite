@@ -25,11 +25,12 @@ export default function Home() {
   const [content, setContent] = useState("");
   const [price, setPrice] = useState<number>(0);
 
+  // Simplified logic for creating a new message
   function createMessage() {
-    const uniqueId = Math.random().toString(36).substring(2, 10);
-    const newMessage = { id: uniqueId, content, price };
-    setMessages([...messages, newMessage]);
-    alert(`Message link: /messages/${uniqueId}`);
+    const newId = Date.now().toString();
+    const newMessage: Message = { id: newId, content, price };
+    setMessages((prev) => [...prev, newMessage]);
+    alert(`Message link: /messages/${newId}`);
   }
 
   const fadeIn = useSpring({

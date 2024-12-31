@@ -12,7 +12,7 @@ import { PrimaryButton } from "../../components/Buttons";
 export default function SignIn() {
   const [username, setUsername] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     alert(`Signed in as: ${username}`);
   }
